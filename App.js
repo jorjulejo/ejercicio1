@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <HeaderView></HeaderView>
-     // <BodyView></BodyView>
+      <BodyView></BodyView>
       <FooterView></FooterView>
     </View>
   );
@@ -20,5 +20,4 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 2,
   },
-
 });

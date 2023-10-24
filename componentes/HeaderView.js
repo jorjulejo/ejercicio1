@@ -1,18 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import ListaEquipos from "./ListaEquiposView";
 
 export default function HeaderView() {
   return (
-      <View style={styles.headerStyle}>
-        <Text style={styles.textEquipoStyle}>Equipo 1</Text>
-        <Text style={styles.textEquipoStyle}>Equipo 2</Text>
-        <Text style={styles.textEquipoStyle}>Equipo 3</Text>
-      </View>
+    <View style={styles.headerStyle}>
+      <ListaEquipos> </ListaEquipos>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
- 
   headerStyle: {
     height: 100,
     borderColor: "black",
@@ -21,14 +19,5 @@ const styles = StyleSheet.create({
     flexDirection: "row", // Muestra el contenido en horizontal
     flexWrap: "wrap",
     padding: 5,
-  },
-
-  textEquipoStyle: {
-    fontSize: 30,
-    borderColor: "black",
-    borderWidth: 2,
-    margin: 5,
-    padding: 5,
-    fontWeight: "bold",
   },
 });
