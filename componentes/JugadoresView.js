@@ -1,32 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-const jugadores = ["Jugador 1.1", "Jugador 1.2", "Jugador 1.3", "Jugador 1.4", "Jugador 1.5"];
+export default function JugadoresView({ jugador, setPokemonSeleccionado }) {
+  const handleJugadorClick = () => {
+    
+    setPokemonSeleccionado(jugador);
+  };
 
-export default function BodyView() {
   return (
-    <View style={styles.JugadoresStyle}>
-      {jugadores.map((jugador)=>{
-        return (<Text style={styles.textEquipoStyle}>{jugador}</Text>);
-      })};
-
-    </View>
+    <TouchableOpacity onPress={handleJugadorClick}>
+      <View style={styles.jugadorStyle}>
+        <Text style={styles.textNombreStyle}>{jugador.nombre}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  textEquipoStyle: {
-    fontSize: 30,
+  jugadorStyle: {
     borderColor: "black",
     borderWidth: 2,
     margin: 5,
     padding: 5,
-    fontWeight: "bold",
   },
-  JugadoresStyle: {
-    borderColor: "black",
-    borderWidth: 2,
-    flexWrap: "wrap",
-    padding: 5,
+  textNombreStyle: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });

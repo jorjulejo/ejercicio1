@@ -1,13 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import Perfil from "./PerfilView";
 import ListaJugadores from "./ListaJugadoresView";
 
-export default function BodyView() {
+export default function BodyView({ equipos, equipoSeleccionado, pokemonSeleccionado, setPokemonSeleccionado }) {
+  const jugadoresDelEquipo = equipos[equipoSeleccionado] || [];
+
   return (
     <View style={styles.bodyStyle}>
-      <ListaJugadores></ListaJugadores>
-      <Perfil></Perfil>
+      <ListaJugadores jugadores={jugadoresDelEquipo} setPokemonSeleccionado={setPokemonSeleccionado} />
+      <Perfil pokemonSeleccionado={pokemonSeleccionado} />
     </View>
   );
 }
@@ -17,6 +19,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: "black",
     borderWidth: 2,
-    flexDirection: "row", // Muestra el contenido en horizontal
+    flexDirection: "row",
   },
 });

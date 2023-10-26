@@ -1,26 +1,36 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
+import { View, Image, Text, StyleSheet } from "react-native";
 
-export default function BodyView() {
+export default function PerfilView({ pokemonSeleccionado }) {
+  const jugadorSeleccionado = pokemonSeleccionado ? pokemonSeleccionado : { nombre: "Sin jugador seleccionado", imagen: null };
+
   return (
-    <View style={styles.bodyStyle}>
+    <View style={styles.perfilStyle}>
       <Image
-        style={styles.image}
-        source={require("../assets/Endou_passing_the_ball.webp")}
-      ></Image>
+        source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${jugadorSeleccionado.imagen}.png` }} // Reemplaza "url_de_tu_servidor" con la URL real de tus imágenes.
+        style={styles.imagenJugadorStyle}
+      />
+      <Text style={styles.textNombreStyle}>{jugadorSeleccionado.nombre}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  bodyStyle: {
+  perfilStyle: {
     flex: 1,
     borderColor: "black",
     borderWidth: 2,
-    flexDirection: "row", // Muestra el contenido en horizontal
+    alignItems: "center",
+    justifyContent: "center",
   },
-
-  image: {
-    flex: 1,
+  imagenJugadorStyle: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+  },
+  textNombreStyle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginTop: 10,
   },
 });

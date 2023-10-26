@@ -2,10 +2,10 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import ListaEquipos from "./ListaEquiposView";
 
-export default function HeaderView() {
+export default function HeaderView({ equipos, equipoSeleccionado, onEquipoSeleccionado }) {
   return (
     <View style={styles.headerStyle}>
-      <ListaEquipos> </ListaEquipos>
+      <ListaEquipos equipos={equipos} equipoSeleccionado={equipoSeleccionado} onEquipoSeleccionado={onEquipoSeleccionado} />
     </View>
   );
 }
