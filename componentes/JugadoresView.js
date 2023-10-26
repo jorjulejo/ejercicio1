@@ -1,14 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
 
+const jugadores = ["Jugador 1.1", "Jugador 1.2", "Jugador 1.3", "Jugador 1.4", "Jugador 1.5"];
+
 export default function BodyView() {
   return (
     <View style={styles.JugadoresStyle}>
-      <Text style={styles.textEquipoStyle}>Jugador 1.1</Text>
-      <Text style={styles.textEquipoStyle}>Jugador 1.2</Text>
-      <Text style={styles.textEquipoStyle}>Jugador 1.3</Text>
-      <Text style={styles.textEquipoStyle}>Jugador 1.4</Text>
-      <Text style={styles.textEquipoStyle}>Jugador 1.5</Text>
+      {jugadores.map((jugador)=>{
+        return (<Text style={styles.textEquipoStyle}>{jugador}</Text>);
+      })};
+
     </View>
   );
 }

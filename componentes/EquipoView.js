@@ -1,12 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+const equipos = ["Equipo 1", "Equipo 2", "Equipo 3"];
 
 export default function EquipoView() {
+  
   return (
     <View style={styles.EquiposStyle}>
-      <Text style={styles.textEquipoStyle}>Equipo 1</Text>
-      <Text style={styles.textEquipoStyle}>Equipo 2</Text>
-      <Text style={styles.textEquipoStyle}>Equipo 3</Text>
+      {equipos.map((equipo)=>{
+        return (<Text style={styles.textEquipoStyle}>{equipo}</Text>);
+      })};
     </View>
   );
 }
