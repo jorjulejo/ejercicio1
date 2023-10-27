@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
 export default function PerfilView({ pokemonSeleccionado }) {
-  const jugadorSeleccionado = pokemonSeleccionado ? pokemonSeleccionado : { nombre: "Sin jugador seleccionado", imagen: null };
+  const jugadorSeleccionado = pokemonSeleccionado ? pokemonSeleccionado : { nombre: "BULBASAUR", imagen: "1" };
 
   return (
     <View style={styles.perfilStyle}>

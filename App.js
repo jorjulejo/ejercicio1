@@ -7,14 +7,14 @@ import React,{useState} from "react";
 
 export default function App() {
  const equipos = {
-  equipo1:[
+  gen1:[
     {nombre:"BULBASAUR",imagen:1},
     {nombre:"IVYSAUR",imagen:2},
     {nombre:"VENUSAUR",imagen:3},
     {nombre:"CHARMANDER",imagen:4},
     {nombre:"CHARMELEON",imagen:5}
   ]
-  , equipo2:[
+  , gen2:[
       {nombre:"CHARIZARD",imagen:6},
       {nombre:"SQUIRTLE",imagen:7},
       {nombre:"WARTORTLE",imagen:8},
@@ -22,7 +22,7 @@ export default function App() {
       {nombre:"CATERPIE",imagen:10}
   ]
 
-  ,equipo3:[
+  ,gen3:[
       {nombre:"METAPOD",imagen:11},
       {nombre:"BUTTERFREE",imagen:12},
       {nombre:"WEEDLE",imagen:13},
@@ -32,7 +32,7 @@ export default function App() {
   };
 
 
-const[equipoSeleccionado,setEquipoSeleccionado] = useState("equipo1");
+const[equipoSeleccionado,setEquipoSeleccionado] = useState("gen1");
 const[pokemonSeleccionado,setPokemonSeleccionado] = useState(0);
 
 return (
