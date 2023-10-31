@@ -2,12 +2,14 @@ import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
 export default function PerfilView({ pokemonSeleccionado }) {
-  const jugadorSeleccionado = pokemonSeleccionado ? pokemonSeleccionado : { nombre: "BULBASAUR", imagen: "1" };
+  const jugadorSeleccionado = pokemonSeleccionado;
 
   return (
     <View style={styles.perfilStyle}>
       <Image
-        source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${jugadorSeleccionado.imagen}.png` }} // Reemplaza "url_de_tu_servidor" con la URL real de tus imágenes.
+        source={{
+          uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${jugadorSeleccionado.imagen}.png`,
+        }} // Reemplaza "url_de_tu_servidor" con la URL real de tus imágenes.
         style={styles.imagenJugadorStyle}
       />
       <Text style={styles.textNombreStyle}>{jugadorSeleccionado.nombre}</Text>
@@ -18,7 +20,7 @@ export default function PerfilView({ pokemonSeleccionado }) {
 const styles = StyleSheet.create({
   perfilStyle: {
     flex: 1,
-    borderColor: "black",
+    borderColor: "white",
     borderWidth: 2,
     alignItems: "center",
     justifyContent: "center",
@@ -32,5 +34,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 10,
+    color: "white",
   },
 });

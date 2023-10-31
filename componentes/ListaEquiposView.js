@@ -1,14 +1,32 @@
-import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function EquipoView({ equipos, equipoSeleccionado, onEquipoSeleccionado }) {
+export default function ListaEquiposView({ equipos, equipoSeleccionado, onEquipoSeleccionado }) {
+
+  const [hoveredEquipo, setHoveredEquipo] = useState(null);
+
+  const handleEquipoPressIn = () => {
+    setIsHovered(true);
+  };
+
+  const handleEquipoPressOut = () => {
+    setIsHovered(false);
+  };
   return (
-    <View style={styles.EquiposStyle}>
+    <View style={styles.equiposContainer}>
       {Object.keys(equipos).map((nombreEquipo, index) => (
-        <TouchableOpacity key={index} onPress={() => onEquipoSeleccionado(nombreEquipo)}>
-          <Text style={[styles.textEquipoStyle, nombreEquipo === equipoSeleccionado ? styles.selectedNombreEquipo : null]}>
-            {nombreEquipo}
-          </Text>
+        <TouchableOpacity
+          key={index}
+          onPress={() => onEquipoSeleccionado(nombreEquipo)}
+          onMouseEnter={() => setHoveredEquipo(nombreEquipo)}
+          onMouseLeave={() => setHoveredEquipo(null)}
+          style={[
+            styles.equipoItem,
+            nombreEquipo === hoveredEquipo ? styles.hoveredEquipo : null,
+            nombreEquipo === equipoSeleccionado ? styles.selectedEquipo : null,
+          ]}
+        >
+          <Text style={styles.textEquipo}>{nombreEquipo}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -16,21 +34,34 @@ export default function EquipoView({ equipos, equipoSeleccionado, onEquipoSelecc
 }
 
 const styles = StyleSheet.create({
-  EquiposStyle: {
-    alignItems: "center",
-    flexDirection: "row", // Muestra el contenido en horizontal
+  equiposContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
     flexWrap: "wrap",
-    padding: 5,
+    padding: 10,
   },
-  textEquipoStyle: {
-    fontSize: 30,
-    borderColor: "black",
+  equipoItem: {
+    borderRadius: 10,
+    borderColor: "white",
     borderWidth: 2,
-    margin: 5,
-    padding: 5,
-    fontWeight: "bold",
+    margin: 10,
+    padding: 10,
+    backgroundColor: "#2c3e50", // Color de fondo predeterminado
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 2,
   },
-  selectedNombreEquipo: {
-    backgroundColor: 'yellow',
+  selectedEquipo: {
+    backgroundColor: "#0017FF", // Color de fondo para el equipo seleccionado
+  },
+  textEquipo: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+  },
+  hoveredEquipo: {
+    backgroundColor: "#B5B5B5", // Color de fondo en "hover"
   },
 });

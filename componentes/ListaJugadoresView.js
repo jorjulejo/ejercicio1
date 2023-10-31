@@ -2,12 +2,14 @@ import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import JugadoresView from "./JugadoresView";
 
-export default function ListaJugadoresView({ jugadores, setPokemonSeleccionado }) {
+export default function ListaJugadoresView({ jugadores,pokemonSeleccionado, setPokemonSeleccionado }) {
+
+  
   return (
     <View style={styles.listaJugadoresStyle}>
       <ScrollView>
         {jugadores.map((jugador, index) => (
-          <JugadoresView key={index} jugador={jugador} setPokemonSeleccionado={setPokemonSeleccionado} />
+          <JugadoresView key={index} jugador={jugador} pokemonSeleccionado={pokemonSeleccionado}setPokemonSeleccionado={setPokemonSeleccionado} />
         ))}
       </ScrollView>
     </View>
@@ -17,7 +19,7 @@ export default function ListaJugadoresView({ jugadores, setPokemonSeleccionado }
 const styles = StyleSheet.create({
   listaJugadoresStyle: {
     flex: 1,
-    borderColor: "black",
+    borderColor: "white",
     borderWidth: 2,
   },
 });

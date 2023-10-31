@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function FooterView() {
@@ -13,19 +13,24 @@ export default function FooterView() {
 const styles = StyleSheet.create({
   footerStyle: {
     height: 100,
-    borderColor: "black",
+    borderColor: "white",
     borderWidth: 2,
     alignItems: "center",
     flexDirection: "row", // Muestra el contenido en horizontal
     justifyContent: "space-between",
     flexWrap: "wrap",
+    backgroundColor: "#f0f0f0", // Color de fondo
+    padding: 10,
+
+    backgroundColor: "#2c3e50", // Color de fondo
   },
   textFooterStyle: {
-    fontSize: 30,
-    borderColor: "black",
+    fontSize: 20, 
+    borderColor: "white",
     borderWidth: 2,
-    margin: 5,
     padding: 5,
     fontWeight: "bold",
+    color: "white",
+    
   },
 });

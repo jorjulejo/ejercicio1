@@ -8,7 +8,7 @@ export default function BodyView({ equipos, equipoSeleccionado, pokemonSeleccion
 
   return (
     <View style={styles.bodyStyle}>
-      <ListaJugadores jugadores={jugadoresDelEquipo} setPokemonSeleccionado={setPokemonSeleccionado} />
+      <ListaJugadores jugadores={jugadoresDelEquipo} pokemonSeleccionado={pokemonSeleccionado} setPokemonSeleccionado={setPokemonSeleccionado} />
       <Perfil pokemonSeleccionado={pokemonSeleccionado} />
     </View>
   );
@@ -17,8 +17,17 @@ export default function BodyView({ equipos, equipoSeleccionado, pokemonSeleccion
 const styles = StyleSheet.create({
   bodyStyle: {
     flex: 1,
-    borderColor: "black",
+    borderColor: "white",
     borderWidth: 2,
     flexDirection: "row",
+    backgroundColor: "#2c3e50", // Color de fondo
+    shadowColor: "#000", // Color de la sombra
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5, // Elevación para sombra en Android
   },
 });
